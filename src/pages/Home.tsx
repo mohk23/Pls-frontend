@@ -65,7 +65,7 @@ const Home: React.FC = () => {
 
       
       </IonContent>
-      <IonButton href='/Question'>Take Test</IonButton>
+      <IonButton href='/Category'>Take Test</IonButton>
     </IonPage>
   );
 };
