@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import styles from "./Home.module.scss";
 import Question from './pages/Question';
 import Edit from './pages/Edit';
+import Category from './pages/Category';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -54,6 +55,9 @@ const App: React.FC = () => /* const [text, setText] = useState<string>();*/ /* 
             </Route>
             <Route exact path="/Edit">
               <Edit />
+            </Route>
+            <Route exact path="/Category">
+              <Category />
             </Route>
           </IonRouterOutlet>
         </IonReactRouter>
