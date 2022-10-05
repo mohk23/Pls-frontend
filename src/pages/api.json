@@ -1,0 +1,58 @@
+{
+    "data": {
+      "getAllCategories": [
+        {
+          "_id": "62bc93960739226a1741d5c3",
+          "categoryName": "growth",
+          "questionslist": [
+            {
+              "_id": "62bc95c063eedaad302ff1da",
+              "questionName": "saisa",
+              "option1": "asadasd",
+              "option2": "asas",
+              "option3": "Asa",
+              "category": null
+            },
+            {
+              "_id": "62bc963677201702ca3b313c",
+              "questionName": "saisa",
+              "option1": "asadasd",
+              "option2": "asas",
+              "option3": "Asa",
+              "category": null
+            },
+            {
+              "_id": "62bca027c240d20e7efbf144",
+              "questionName": "what is groot",
+              "option1": "i am groot",
+              "option2": "i am groort",
+              "option3": "i am siuuu",
+              "category": null
+            }
+          ]
+        },
+        {
+          "_id": "62bd47510470f6874d8638d8",
+          "categoryName": "development",
+          "questionslist": [
+            {
+              "_id": "62bd477c0470f6874d8638dd",
+              "questionName": "what is groot",
+              "option1": "i am groot",
+              "option2": "i am groort",
+              "option3": "i am siuuu",
+              "category": null
+            },
+            {
+              "_id": "62bd47b80470f6874d8638e2",
+              "questionName": "What is groot",
+              "option1": "i am groot",
+              "option2": "i am groort",
+              "option3": "i am siuuu",
+              "category": null
+            }
+          ]
+        }
+      ]
+    }
+  }
