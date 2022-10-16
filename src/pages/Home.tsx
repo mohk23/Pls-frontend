@@ -7,6 +7,7 @@ import Edit from './Edit'
 import Admin from './admin';
 /* Theme variables */
 import '../theme/variables.css';
+import { text } from 'ionicons/icons';
 
 const Home: React.FC = () => {
   return (
@@ -41,7 +42,7 @@ const Home: React.FC = () => {
               <IonRow className={styles.profileInfo}>
                 <IonCol size='12'>
                 <IonText color="dark">
-                  <p>Welcome Username!</p>
+                  <p>Welcome User</p>
 
                 </IonText>
                 <IonText color="medium">

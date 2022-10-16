@@ -9,34 +9,68 @@ import styles from "./Home.module.scss";
 /* Theme variables */
 import '../theme/variables.css';
 
-const ADD_TODO = gql`
-  mutation AddTodo($type: String!) {
-    addTodo(type: $type) {
-      id
-      type
-    }
+
+const CREATE_QUES = gql`
+mutation Mutation($post: QuestionInput) {
+  createPost(post: $post) {
+    questionName
+    option1
+    option2
+    option3
+    category
+    _id
   }
+  
+} 
 `;
-function checkval(value:any) {
-  if(value == "AddC")
-    return AddC;
-    else if (value == "AddQ")
-    return
-    else if (value == "DelQ")
-    return
-    else if (value == "UpdateQ")
-    return
-  return 0
-}
+
+
+
+
 
 
 const Admin: React.FC = () => {
-  const [text, setText] = useState<string>('Enter Question');
-  const [opt1, setopt1] = useState<string>('Enter Option 1');
-  const [opt2, setopt2] = useState<string>('Enter Option 2');
-  const [opt3, setopt3] = useState<string>('Enter Option 3');
-  const [number, setNumber] = useState<number>();
-  const [showToast1, setShowToast1] = useState(false);
+const [text, setText] = useState<string>('Enter Question');
+const [Category, setCategory] = useState<string>('Enter Category');
+const [opt1, setopt1] = useState<string>('Enter Option 1');
+const [opt2, setopt2] = useState<string>('Enter Option 2');
+const [opt3, setopt3] = useState<string>('Enter Option 3');
+const [number, setNumber] = useState<number>();
+const [showToast1, setShowToast1] = useState(false);
+const [addQues, { data, loading, error }] = useMutation(CREATE_QUES);
+  function AddQuestion( text:string,Category:string,opt1:string,opt2:string,opt3:string)  {
+    
+  
+    if (loading) return 'Submitting...';
+    if (error) return `Submission error! ${error.message}`;
+  
+    return (
+      <div>
+        <form
+          onSubmit={async e => {
+            e.preventDefault();
+            const{data : UserData} = await addQues({ variables: { type: text,Category,opt1,opt2,opt3 } });
+            {console.log(UserData);} 
+          }}
+        >
+         
+          
+        </form>
+      </div>
+    );
+  }
+  function checkval(value:any) {
+    if(value == "AddC")
+      return 
+      else if (value == "AddQ")
+      return AddQuestion(text,Category,opt1,opt2,opt3);
+      else if (value == "DelQ")
+      return
+      else if (value == "UpdateQ")
+      return
+    return 0
+  }
+  console.log(text,Category,opt1,opt2,opt3)
     return(
         <IonPage>
           <IonContent>
@@ -79,6 +113,13 @@ const Admin: React.FC = () => {
         <IonRow>
         <IonCol>
           <IonItem>
+            <IonInput value={Category} placeholder="Enter Category" onIonChange={e => setCategory(e.detail.value!)} clearInput></IonInput>
+          </IonItem>
+          </IonCol>
+        </IonRow>
+        <IonRow>
+        <IonCol>
+          <IonItem>
             <IonInput value={opt2} placeholder="Enter Input" onIonChange={e => setopt2(e.detail.value!)} clearInput></IonInput>
           </IonItem>
           </IonCol>
@@ -93,7 +134,8 @@ const Admin: React.FC = () => {
         <IonRow>
           <IonCol>
 
-        <IonButton onClick={() => setShowToast1(true)}>Submit</IonButton>
+        <IonButton onClick={() => {return AddQuestion(text,Category,opt1,opt2,opt3);} }>Submit</IonButton>
+        
 <IonToast
         isOpen={showToast1}
         onDidDismiss={() => setShowToast1(false)}
